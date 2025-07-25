@@ -40,7 +40,7 @@
         Faltan <span th:text="${totalFlores - floresActuales}"></span> flores para volver a vernos.
     </h3>
 
-    <h3 th:if="${floresActuales >= totalFlores}">
+    <h3 th:if="${floresActuales = totalFlores}">
         ¡Ya florecieron todas! Ahí estaremos de nuevo juntitos. 💖
     </h3>
 
