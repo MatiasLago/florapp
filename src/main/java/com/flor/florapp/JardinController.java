@@ -12,25 +12,29 @@ import java.util.List;
 @Controller
 public class JardinController {
 
-    private final LocalDateTime FECHA_INICIO = LocalDateTime.of(2025, 7, 25, 0, 0); // Inicio: 23 julio, 00:00
+    private final LocalDateTime FECHA_INICIO = LocalDateTime.of(2025, 7, 25, 0, 0);
+    private final long FLORES_OBJETIVO = 14;
 
     @GetMapping("/")
     public String mostrarJardin(Model model) {
         LocalDateTime ahora = LocalDateTime.now();
-        
-        long horasTranscurridas = ChronoUnit.HOURS.between(FECHA_INICIO, ahora);
-        long floresTotales = Math.max(horasTranscurridas / 5, 1); // 1 flor cada 5h, mínimo 1
 
-        // Limitar para evitar desborde visual
-        long maxFlores = 100;
-        floresTotales = Math.min(floresTotales, maxFlores);
+        long horasTranscurridas = ChronoUnit.HOURS.between(FECHA_INICIO, ahora);
+        long floresActuales = Math.max(horasTranscurridas / 5, 1); // 1 flor cada 5 horas
+
+        // Limitar a máximo 14
+        floresActuales = Math.min(floresActuales, 14);
 
         List<String> flores = new ArrayList<>();
-        for (int i = 0; i < floresTotales; i++) {
+        for (int i = 0; i < floresActuales; i++) {
             flores.add("🌸");
         }
 
+        // Agregar todos los datos al modelo
         model.addAttribute("flores", flores);
+        model.addAttribute("floresActuales", floresActuales);
+        model.addAttribute("totalFlores", FLORES_OBJETIVO);
+
         return "jardin";
     }
 }
