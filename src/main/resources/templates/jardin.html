@@ -40,13 +40,11 @@
         Faltan <span th:text="${totalFlores - floresActuales}"></span> flores para volver a vernos.
     </h3>
 
-    <h3 th:if="${floresActuales = totalFlores}">
+    <h3 th:if="${floresActuales >= totalFlores}">
         ¡Ya florecieron todas! Ahí estaremos de nuevo juntitos. 💖
     </h3>
 
-    <progress th:if="${floresActuales != null and totalFlores != null}"
-          th:attr="value=${floresActuales}, max=${totalFlores}"> </progress>
-
+    <progress th:attr="value=${floresActuales}, max=${totalFlores}"></progress>
 </div>
 
 <h3>Te amo</h3>
