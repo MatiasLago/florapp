@@ -44,7 +44,9 @@
         ¡Ya florecieron todas! Ahí estaremos de nuevo juntitos. 💖
     </h3>
 
-    <progress th:attr="value=${floresActuales}, max=${totalFlores}"></progress>
+    <progress th:if="${floresActuales != null and totalFlores != null}"
+          th:attr="value=${floresActuales}, max=${totalFlores}"> </progress>
+
 </div>
 
 <h3>Te amo</h3>
