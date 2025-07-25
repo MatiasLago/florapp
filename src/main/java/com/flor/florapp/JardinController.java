@@ -19,7 +19,7 @@ public class JardinController {
         LocalDateTime ahora = LocalDateTime.now();
         
         long horasTranscurridas = ChronoUnit.HOURS.between(FECHA_INICIO, ahora);
-        long floresTotales = Math.max(horasTranscurridas / 12, 1); // 1 flor cada 12h, mínimo 1
+        long floresTotales = Math.max(horasTranscurridas / 5, 1); // 1 flor cada 5h, mínimo 1
 
         // Limitar para evitar desborde visual
         long maxFlores = 100;
