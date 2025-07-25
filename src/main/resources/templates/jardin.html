@@ -9,20 +9,45 @@
             font-family: sans-serif;
             background-color: #e0f7fa;
         }
+
         .flower {
             font-size: 32px;
             display: inline-block;
             margin: 5px;
         }
+
+        progress {
+            width: 60%;
+            height: 25px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
+
 <h1>🌼 Tu Jardín 🌼</h1>
 <h2>Una flor cada 5 horas</h2>
-<h3>Te amo</h3>
+
+
+<!-- FLORES -->
 <div>
     <span th:each="flor : ${flores}" class="flower" th:text="${flor}"></span>
 </div>
-<h3>Cuando hayan florecido 14 flores, ahí estaremos de nuevo juntitos.</h3>
+
+<!-- BARRA DE PROGRESO Y MENSAJE -->
+<div>
+    <h3 th:if="${floresActuales < totalFlores}">
+        Faltan <span th:text="${totalFlores - floresActuales}"></span> flores para volver a vernos.
+    </h3>
+
+    <h3 th:if="${floresActuales >= totalFlores}">
+        ¡Ya florecieron todas! Ahí estaremos de nuevo juntitos. 💖
+    </h3>
+
+    <progress th:attr="value=${floresActuales}, max=${totalFlores}"></progress>
+</div>
+
+<h3>Te amo</h3>
+
 </body>
 </html>
