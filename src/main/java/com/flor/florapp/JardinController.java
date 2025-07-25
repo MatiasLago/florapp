@@ -12,7 +12,7 @@ import java.util.List;
 @Controller
 public class JardinController {
 
-    private final LocalDateTime FECHA_INICIO = LocalDateTime.of(2025, 7, 23, 0, 0); // Inicio: 23 julio, 00:00
+    private final LocalDateTime FECHA_INICIO = LocalDateTime.of(2025, 7, 25, 0, 0); // Inicio: 23 julio, 00:00
 
     @GetMapping("/")
     public String mostrarJardin(Model model) {
