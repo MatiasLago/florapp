@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Jardín</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: sans-serif;
+            background-color: #e0f7fa;
+        }
+        .flower {
+            font-size: 32px;
+            display: inline-block;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+<h1>🌼 Tu Jardín 🌼</h1>
+<div>
+    <span th:each="flor : ${flores}" class="flower" th:text="${flor}"></span>
+</div>
+</body>
+</html>
